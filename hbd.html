@@ -1,0 +1,538 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Selamat Ulang Tahun, PERAJUK 🤍</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --cream:#FBF4EF;
+    --plum:#3A2330;
+    --rose:#D99AA3;
+    --gold:#C8A35D;
+    --ink:#2E2026;
+    --line: rgba(58,35,48,0.12);
+  }
+  *{margin:0;padding:0;box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+  body{
+    background:var(--cream);
+    color:var(--ink);
+    font-family:'Inter', sans-serif;
+    overflow-x:hidden;
+  }
+  h1,h2,.script{
+    font-family:'Cormorant Garamond', serif;
+  }
+  .section{
+    padding:120px 8vw;
+    max-width:1100px;
+    margin:0 auto;
+  }
+  /* HERO */
+  .hero{
+    min-height:100svh;
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+    justify-content:center;
+    text-align:center;
+    position:relative;
+    padding:40px 6vw;
+  }
+  .eyebrow{
+    letter-spacing:.35em;
+    text-transform:uppercase;
+    font-size:.7rem;
+    color:var(--rose);
+    margin-bottom:28px;
+    opacity:0;
+    animation: rise .9s .2s forwards ease;
+  }
+  .hero h1{
+    font-weight:500;
+    font-style:italic;
+    font-size:clamp(3rem, 11vw, 7rem);
+    line-height:1;
+    color:var(--plum);
+    opacity:0;
+    animation: rise 1s .4s forwards ease;
+  }
+  .underline{
+    width:120px;
+    margin:28px auto 0;
+    opacity:0;
+    animation: rise 1s .8s forwards ease;
+  }
+  .underline path{
+    stroke:var(--gold);
+    stroke-width:2;
+    fill:none;
+    stroke-dasharray:200;
+    stroke-dashoffset:200;
+    animation: draw 1.4s 1s forwards ease;
+  }
+  .hero p{
+    margin-top:30px;
+    max-width:480px;
+    font-weight:300;
+    font-size:1.05rem;
+    line-height:1.8;
+    color:var(--ink);
+    opacity:0;
+    animation: rise 1s 1.1s forwards ease;
+  }
+  .scroll-hint{
+    position:absolute;
+    bottom:40px;
+    font-size:.7rem;
+    letter-spacing:.25em;
+    text-transform:uppercase;
+    color:var(--plum);
+    opacity:0;
+    animation: rise 1s 1.6s forwards ease, bob 2.4s 2.5s infinite ease-in-out;
+  }
+  @keyframes rise{
+    from{opacity:0; transform:translateY(16px);}
+    to{opacity:1; transform:translateY(0);}
+  }
+  @keyframes draw{ to{ stroke-dashoffset:0; } }
+  @keyframes bob{
+    0%,100%{transform:translateY(0);}
+    50%{transform:translateY(6px);}
+  }
+
+  /* generic section heading */
+  .label{
+    font-size:.7rem;
+    letter-spacing:.3em;
+    text-transform:uppercase;
+    color:var(--rose);
+    margin-bottom:14px;
+  }
+  .section h2{
+    font-weight:500;
+    font-style:italic;
+    font-size:clamp(2rem, 5vw, 3rem);
+    color:var(--plum);
+    margin-bottom:18px;
+  }
+  .section .lede{
+    font-weight:300;
+    color:var(--ink);
+    max-width:560px;
+    line-height:1.8;
+    margin-bottom:50px;
+  }
+
+  /* MESSAGE */
+  .message{
+    text-align:center;
+  }
+  .message .lede{ margin-left:auto; margin-right:auto; }
+  .message blockquote{
+    font-family:'Cormorant Garamond', serif;
+    font-style:italic;
+    font-size:clamp(1.3rem, 3vw, 1.8rem);
+    color:var(--plum);
+    line-height:1.7;
+    max-width:680px;
+    margin:0 auto;
+  }
+  .signoff{
+    margin-top:30px;
+    font-size:.85rem;
+    letter-spacing:.15em;
+    text-transform:uppercase;
+    color:var(--rose);
+  }
+
+  /* VIDEO */
+  .video-frame{
+    position:relative;
+    width:100%;
+    border-radius:18px;
+    overflow:hidden;
+    background:var(--plum);
+    aspect-ratio:16/9;
+    box-shadow:0 30px 60px -20px rgba(58,35,48,0.35);
+  }
+  .video-frame video{
+    width:100%;
+    height:100%;
+    object-fit:cover;
+    display:block;
+  }
+  .video-note{
+    margin-top:18px;
+    font-size:.8rem;
+    color:var(--rose);
+  }
+
+  /* GALLERY */
+  .gallery{
+    display:grid;
+    grid-template-columns:repeat(3, 1fr);
+    gap:14px;
+  }
+  .gallery figure{
+    margin:0;
+    border-radius:14px;
+    overflow:hidden;
+    aspect-ratio:1/1;
+    background:#eadfd8;
+    position:relative;
+  }
+  .gallery figure:nth-child(3n+1){ aspect-ratio: 1/1.25; }
+  .gallery img{
+    width:100%;
+    height:100%;
+    object-fit:cover;
+    display:block;
+    transition:transform .6s ease;
+  }
+  .gallery figure:hover img{ transform:scale(1.06); }
+  @media (max-width:640px){
+    .gallery{ grid-template-columns:repeat(2,1fr); }
+  }
+
+  /* MUSIC */
+  .music{
+    text-align:center;
+  }
+  .music .lede{ margin-left:auto; margin-right:auto; }
+  .player-card{
+    border:1px solid var(--line);
+    border-radius:18px;
+    padding:8px;
+    background:#fff;
+    max-width:480px;
+    margin:0 auto;
+  }
+  .player-card iframe{
+    border-radius:12px;
+    width:100%;
+    border:0;
+  }
+
+  /* BALLOONS (hero background) */
+  .balloons{
+    position:absolute;
+    inset:0;
+    overflow:hidden;
+    pointer-events:none;
+    z-index:0;
+  }
+  .balloon{
+    position:absolute;
+    bottom:-160px;
+    width:46px;
+    height:58px;
+    border-radius:50% 50% 50% 50% / 55% 55% 45% 45%;
+    opacity:0.55;
+    animation: float-up linear infinite;
+  }
+  .balloon::after{
+    content:"";
+    position:absolute;
+    left:50%;
+    top:100%;
+    width:1px;
+    height:46px;
+    background:rgba(58,35,48,0.25);
+    transform:translateX(-50%);
+  }
+  .balloon::before{
+    content:"";
+    position:absolute;
+    left:50%;
+    top:97%;
+    width:7px;
+    height:9px;
+    background:inherit;
+    opacity:1;
+    clip-path:polygon(0 0,100% 0,50% 100%);
+    transform:translateX(-50%);
+  }
+  .b1{ left:8%;  background:var(--rose); animation-duration:16s; animation-delay:0s; }
+  .b2{ left:22%; background:var(--gold); width:38px; height:48px; animation-duration:13s; animation-delay:2s; }
+  .b3{ left:48%; background:var(--plum); opacity:.35; animation-duration:19s; animation-delay:1s; }
+  .b4{ left:68%; background:var(--rose); width:40px; height:52px; animation-duration:15s; animation-delay:4s; }
+  .b5{ left:84%; background:var(--gold); opacity:.4; animation-duration:18s; animation-delay:6s; }
+  .b6{ left:36%; background:var(--rose); width:34px; height:44px; opacity:.4; animation-duration:14s; animation-delay:8s; }
+  @keyframes float-up{
+    0%{ transform:translateY(0) translateX(0); }
+    50%{ transform:translateY(-60vh) translateX(18px); }
+    100%{ transform:translateY(-130vh) translateX(-12px); }
+  }
+  .hero > *{ position:relative; z-index:1; }
+
+  /* CAKE */
+  .cake-wrap{
+    text-align:center;
+  }
+  .cake-wrap .lede{ margin-left:auto; margin-right:auto; }
+  .cake-stage{
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+    gap:22px;
+  }
+  .cake-svg{ width:220px; height:auto; }
+  .flame{
+    transform-origin:50% 100%;
+    animation: flicker 1.6s ease-in-out infinite;
+  }
+  @keyframes flicker{
+    0%,100%{ transform:scale(1) rotate(0deg); }
+    25%{ transform:scale(1.08,0.94) rotate(-3deg); }
+    50%{ transform:scale(0.95,1.06) rotate(2deg); }
+    75%{ transform:scale(1.05,0.96) rotate(-2deg); }
+  }
+  .blow-btn{
+    font-family:'Inter', sans-serif;
+    font-size:.75rem;
+    letter-spacing:.2em;
+    text-transform:uppercase;
+    color:var(--cream);
+    background:var(--plum);
+    border:none;
+    padding:14px 28px;
+    border-radius:999px;
+    cursor:pointer;
+    transition:transform .25s ease, background .25s ease;
+  }
+  .blow-btn:hover{ transform:translateY(-2px); background:var(--ink); }
+  .cake-wish{
+    margin-top:6px;
+    font-family:'Cormorant Garamond', serif;
+    font-style:italic;
+    font-size:1.2rem;
+    color:var(--plum);
+    opacity:0;
+    transition:opacity .6s ease;
+  }
+  .cake-wish.show{ opacity:1; }
+  .confetti-piece{
+    position:fixed;
+    top:-10px;
+    width:8px;
+    height:14px;
+    z-index:50;
+    pointer-events:none;
+    animation: confetti-fall 2.4s ease-in forwards;
+  }
+  @keyframes confetti-fall{
+    to{ transform:translateY(105vh) rotate(540deg); opacity:.9; }
+  }
+
+  .audio-toggle{
+    position:fixed;
+    right:20px;
+    bottom:20px;
+    z-index:60;
+    border:none;
+    width:48px;
+    height:48px;
+    border-radius:50%;
+    background:var(--plum);
+    color:var(--cream);
+    box-shadow:0 10px 24px rgba(58,35,48,.2);
+    cursor:pointer;
+    font-size:1rem;
+    transition:transform .25s ease, opacity .25s ease;
+  }
+  .audio-toggle:hover{ transform:translateY(-2px); }
+  .audio-toggle.is-playing{ background:var(--rose); }
+
+  footer{
+    text-align:center;
+    padding:60px 6vw 80px;
+    font-size:.75rem;
+    letter-spacing:.2em;
+    text-transform:uppercase;
+    color:var(--rose);
+  }
+
+  /* fade-in on scroll */
+  .reveal{
+    opacity:0;
+    transform:translateY(24px);
+    transition:opacity .8s ease, transform .8s ease;
+  }
+  .reveal.in{
+    opacity:1;
+    transform:translateY(0);
+  }
+</style>
+</head>
+<body>
+
+  <!-- HERO -->
+  <section class="hero">
+    <div class="balloons">
+      <span class="balloon b1"></span>
+      <span class="balloon b2"></span>
+      <span class="balloon b3"></span>
+      <span class="balloon b4"></span>
+      <span class="balloon b5"></span>
+      <span class="balloon b6"></span>
+    </div>
+    <div class="eyebrow">Hari Ini, tanggal 1 kakpi ultah slebew</div>
+    <h1>Selamat Ulang Tahun,<br>Kakpi</h1>
+    <svg class="underline" viewBox="0 0 120 12" xmlns="http://www.w3.org/2000/svg">
+      <path d="M2,8 C30,2 90,2 118,8" />
+    </svg>
+    <p>jangan merajuk terus.</p>
+    
+  </section>
+
+  <!-- MESSAGE -->
+  <section class="section message reveal">
+    <div class="label">Sepucuk Pesan</div>
+    <h2>Untuk Kamu</h2>
+    <blockquote>
+      "Semoga semesta selalu memberimu kemudahan atas segala urusanmu,semoga doamu terkabul satu persatu,dan semoga pundakmu selalu dikuatkan dan dikelilingi orang2 baik damanpun kakpi berada."
+    </blockquote>
+  
+  </section>
+
+  <!-- CAKE -->
+  <section class="section cake-wrap reveal">
+    <div class="label">Satu Permohonan</div>
+    <h2>Tiup Lilinnya, Kakpi</h2>
+    <p class="lede">Pejamkan matao, buat satu permohonan, lahtu tiup lilinny.</p>
+    <div class="cake-stage">
+      <svg class="cake-svg" id="cakeSvg" viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
+        <ellipse cx="100" cy="172" rx="74" ry="10" fill="#3A2330" opacity="0.08"/>
+        <rect x="38" y="120" width="124" height="46" rx="10" fill="#E8B4BC"/>
+        <rect x="38" y="120" width="124" height="14" rx="7" fill="#fff" opacity="0.55"/>
+        <rect x="50" y="86" width="100" height="40" rx="10" fill="#F3D6C5"/>
+        <rect x="50" y="86" width="100" height="12" rx="6" fill="#fff" opacity="0.6"/>
+        <rect x="64" y="56" width="72" height="34" rx="9" fill="#D99AA3"/>
+        <rect x="64" y="56" width="72" height="10" rx="5" fill="#fff" opacity="0.55"/>
+        <g id="candleGroup">
+          <rect x="96" y="34" width="8" height="24" rx="3" fill="#C8A35D"/>
+          <path id="flamePath" class="flame" d="M100 16 C104 22 106 26 100 34 C94 26 96 22 100 16 Z" fill="#E8924A"/>
+        </g>
+      </svg>
+      <button class="blow-btn" id="blowBtn">embus Lilin</button>
+      <div class="cake-wish" id="cakeWish">Semoga semua harapan kakpi, terkabul yaa. 🤍</div>
+    </div>
+  </section>
+
+  <!-- VIDEO -->
+  <section class="section reveal">
+    <div class="label">Kenangan tong 2</div>
+    <h2>Sepotong Video</h2>
+    <p class="lede">Satu video kecil, dibuat dengan sepenuh hati.</p>
+    <div class="video-frame">
+      <video controls poster="">
+        <source src="vidio.mp4" type="video/mp4">
+        Browser kamu tidak mendukung pemutar video.
+      </video>
+    </div>
+   
+  </section>
+
+  <!-- GALLERY -->
+  <section class="section reveal">
+    <div class="label">Galeri</div>
+    <h2>Momen-Momen Kito nian dibawah ni</h2>
+    <p class="lede">Beberapa potret yang selalu ingin kuputar ulang AAAAAANNNNJAAYY.</p>
+    <div class="gallery">
+      <figure><img src="foto1.jpeg" alt="Foto kenangan 1"></figure>
+      <figure><img src="foto2.jpeg" alt="Foto kenangan 2"></figure>
+      <figure><img src="foto3.jpeg" alt="Foto kenangan 3"></figure>
+      <figure><img src="foto4.jpeg" alt="Foto kenangan 4"></figure>
+      <figure><img src="foto5.jpeg" alt="Foto kenangan 5"></figure>
+      <figure><img src="foto6.jpeg" alt="Foto kenangan 6"></figure>
+    </div>
+    
+  </section>
+
+  <!-- MUSIC -->
+  <section class="section music reveal">
+    <div class="label">pencet tombol play dbwah ni atau icon musik dikanan bawah tu </div>
+    <h2>Photograph — Ed Sheeran</h2>
+    <p class="lede">cocok dak sih pakai lagu ni.</p>
+    <div class="player-card">
+      <iframe src="https://open.spotify.com/embed/track/1HNkqx9Ahdgi1Ixy2xkKkL?si=3d208774cc1d46be" width="100%" height="152" frameborder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
+    </div>
+  </section>
+
+  <button class="audio-toggle" id="audioToggle" type="button" aria-label="Mainkan musik latar">♫</button>
+  <audio id="bgAudio" loop preload="auto">
+    <source src="musik.mp3" type="audio/mpeg">
+  </audio>
+
+  <footer>Dibuat dengan ❤ untuk Kakpi</footer>
+
+<script>
+  const reveals = document.querySelectorAll('.reveal');
+  const io = new IntersectionObserver((entries)=>{
+    entries.forEach(e=>{
+      if(e.isIntersecting){ e.target.classList.add('in'); io.unobserve(e.target); }
+    });
+  }, { threshold:0.15 });
+  reveals.forEach(el=>io.observe(el));
+
+  const audio = document.getElementById('bgAudio');
+  const audioToggle = document.getElementById('audioToggle');
+
+  function startAudio(){
+    audio.volume = 0.35;
+    audio.play().catch(()=>{});
+    audioToggle.classList.add('is-playing');
+  }
+
+  audioToggle.addEventListener('click', ()=>{
+    if(audio.paused){
+      audio.play().catch(()=>{});
+      audioToggle.classList.add('is-playing');
+    } else {
+      audio.pause();
+      audioToggle.classList.remove('is-playing');
+    }
+  });
+
+  document.addEventListener('pointerdown', startAudio, { once: true });
+  document.addEventListener('keydown', startAudio, { once: true });
+
+  // Blow out candle
+  const blowBtn = document.getElementById('blowBtn');
+  const flame = document.getElementById('flamePath');
+  const wish = document.getElementById('cakeWish');
+  const colors = ['#D99AA3','#C8A35D','#3A2330','#E8B4BC','#F3D6C5'];
+
+  function burstConfetti(){
+    for(let i=0;i<28;i++){
+      const piece = document.createElement('div');
+      piece.className = 'confetti-piece';
+      piece.style.left = Math.random()*100 + 'vw';
+      piece.style.background = colors[Math.floor(Math.random()*colors.length)];
+      piece.style.animationDelay = (Math.random()*0.4) + 's';
+      piece.style.animationDuration = (1.8 + Math.random()*1.2) + 's';
+      document.body.appendChild(piece);
+      setTimeout(()=>piece.remove(), 3200);
+    }
+  }
+
+  blowBtn.addEventListener('click', ()=>{
+    if(flame.style.opacity === '0') return;
+    flame.style.transition = 'opacity .4s ease, transform .4s ease';
+    flame.style.opacity = '0';
+    flame.style.transform = 'scale(0.2)';
+    wish.classList.add('show');
+    burstConfetti();
+    blowBtn.textContent = 'Permohonan Terkirim';
+    blowBtn.disabled = true;
+    blowBtn.style.opacity = '0.7';
+    blowBtn.style.cursor = 'default';
+  });
+</script>
+</body>
+</html>
